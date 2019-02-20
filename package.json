@@ -1,0 +1,22 @@
+{
+  "name": "uf-apcreditcalculator",
+  "version": "1.0.0",
+  "description": "a web app that calculates how many credits you will receive upon entering UF given your ap test scores",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristoferbuno/uf-apcreditcalculator.git"
+  },
+  "author": "Kristofer Buno",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kristoferbuno/uf-apcreditcalculator/issues"
+  },
+  "homepage": "https://github.com/kristoferbuno/uf-apcreditcalculator#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
