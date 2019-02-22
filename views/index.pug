@@ -1,20 +1,22 @@
 doctype html
 html(lang='en')
   head
-    title Florida AP Credit Calculator
+    title Florida University Credit Calculator
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
     <script src="/semantic/dist/semantic.min.js"></script>
-  body(style="background-color:#292950")
-    div(class="ui container" style="padding-top:6%")
-      h1(class="ui header" style="color:white") Florida AP Credit Calculator
+    script(src="/js/index.js")
+  body(style="background-color:#293950")
+    div(class="ui container" style="padding-top:6%; margin-bottom:1%")
+      h1(class="ui header" style="color:white") FUCC
+      h3(class="ui sub header" style="color:white; margin-top:1%") Florida University Credit Calculator
       div(class="ui segment")
         div(class="ui labeled action input")
           div(class="ui basic dropdown label" style="width:11em")
             div(class="text") Exam
             i(class="dropdown icon")
             div(class="menu")
-              div(class="item")
-          input(type="number" placeholder="Score" name="score" min="1" max="5" style="width:7em")
+              script()
+          input(type="number" placeholder="Score" name="score" min="3" max="5" style="width:7em")
           div(class="ui green icon button")
-            i(class="plus icon")
+            i(class="right arrow icon")
