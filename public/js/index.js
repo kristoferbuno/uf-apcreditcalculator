@@ -1,5 +1,10 @@
-var ap_exam_credits, ap_exams;
+//things to do when document becomes ready
+$(document).ready(function(){
+    //instantiate fomantic ui dropdown js
+    $('#hi').dropdown();
+})
 
+var ap_exam_credits, ap_exams;
 //pulling in from the ap_exam_credits.json file stored in /public/json
 $.getJSON(`json\\apexamcredits.json`, function(creds) {
     //turning JSON file into a JS object, then putting in the exam names into an array
@@ -7,9 +12,9 @@ $.getJSON(`json\\apexamcredits.json`, function(creds) {
     ap_exams = Object.keys(ap_exam_credits[3])
 
     //programatically add DOM elements with each exam and a field for each exam after JSON is loaded
-    for (var exam in ap_exams)
+    for (let exam in ap_exams)
     {
-    var optel = `
+    let optel = `
                 <div class="ui accordion fluid field">
                     <div class="title">
                         <i class="icon dropdown"></i>
@@ -21,27 +26,21 @@ $.getJSON(`json\\apexamcredits.json`, function(creds) {
                 `;
         
         $("#listtop").append(optel);
-    } 
+    }
     $('.ui.accordion').accordion();
 })
 
-//things to do when document becomes ready
-$(document).ready(function(){
-    //instantiate fomantic ui dropdown js
-    $('#hi').dropdown();
-})
-
-//transitions from selection view to scores view
+//function that transitions from selection view to scores view
 function submitForm()
 {
-    //show credits and remove the exam selection screen
     $('#selection_container').transition('fade');
     $('#credits_container').transition('fade', '1000ms');
 
     let formData = $('form').serializeArray();
     let scores = {};
 
-    for (var index in formData){
+    //convert formData to object form in scores
+    for (let index in formData){
         if (formData[index].value != ''){
             scores[formData[index].name] = formData[index].value;
         }
@@ -58,8 +57,9 @@ function submitForm()
         "total":0
     }
 
-    for (var exam in scores){
-        for (var category in credit_earned)
+    //put in credit into the credit_earned object
+    for (let exam in scores){
+        for (let category in credit_earned)
         {
             let score = scores[exam];
             credit_earned[category] += ap_exam_credits[score][exam][category];
@@ -68,10 +68,10 @@ function submitForm()
 
     $('#composition_earned').text(credit_earned.c);
     $('#mathematics_earned').text(credit_earned.m);
-    $('#humanities_earned').text(credit_earned.m);
+    $('#humanities_earned').text(credit_earned.h);
     $('#sciences_earned').text(credit_earned.bp);
     $('#socsci_earned').text(credit_earned.s);
     $('#international_earned').text(credit_earned.n);
-    $('#diveristy_earned').text(credit_earned.d);
+    $('#diversity_earned').text(credit_earned.d);
     $('#total_earned').text(credit_earned.total);
 }
