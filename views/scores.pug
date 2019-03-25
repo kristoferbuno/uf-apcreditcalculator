@@ -1,0 +1,17 @@
+doctype html
+html(lang='en')
+  head
+    title Florida University Credit Calculator
+    script(src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js")
+    link(rel="stylesheet" type="text/css" href="/semantic/dist/semantic.css")
+    script(src="/semantic/dist/semantic.js")
+    script(src="/js/scores.js")
+  body(style="background-color:#293950")
+    div(class="ui text container" style="padding-top:2%; margin-bottom:1%")
+      h1(class="ui header" style="color:white") FUCC
+      h3(class="ui sub header" style="color:white; margin-top:1%") Florida University Credit Calculator
+      div(class="ui segment" id="selection_container" style="display:fixed; height:50%")
+        h5(class="ui header") This website lets you put in your AP exam scores and figure out how much credit each public Florida university would give you.
+        form(class="ui fluid form" id="scoreForm" style="margin-bottom:3%" action="/scores" method="get")
+          input(class="ui fluid button" type="submit" value="Submit" style="margin-top:3%")
+    footer(class="ui white text" style="color:white; text-align:center; margin:1em") ©2019 Kristofer Buno | All rights reserved I guess

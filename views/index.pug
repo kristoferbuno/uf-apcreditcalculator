@@ -10,54 +10,54 @@ html(lang='en')
     div(class="ui text container" style="padding-top:2%; margin-bottom:1%")
       h1(class="ui header" style="color:white") FUCC
       h3(class="ui sub header" style="color:white; margin-top:1%") Florida University Credit Calculator
-      div(class="ui segment" id="selection_container" style="display:fixed; height:50%; overflow:hidden")
+      div(class="ui segment" id="selection_container" style="display:fixed; height:50%")
         h5(class="ui header") This website lets you put in your AP exam scores and figure out how much credit each public Florida university would give you.
-        form(class="ui fluid form" id="scoreForm")
-          div(class="ui middle aligned selection list" id="listtop")
-        button(class="ui fluid button" onclick="submitForm()") Submit
+        form(class="ui fluid form" id="scoreForm" action="/scores" method="get")
+          select(name="exams" multiple="" class="ui fluid search dropdown" id="listtop")
+          input(class="ui fluid button" type="submit" value="Submit" style="margin-top:3%")
 
-    div(class="ui text container transition hidden" style="padding-top:2%; margin-bottom:1%; display:none " id="credits_container")
-      div(class="ui segment")
-        h5(class="ui header")
-        table(class="ui celled table")
-          thead
-            tr
-              th Gen. Ed. Subject
-              th Earned credits
-              th Required credits
-          tbody(id="table_body")
-            tr
-              td(data-label="Composition") Composition
-              td(id="composition_earned")
-              td(data-label="6") 6
-            tr
-              td(data-label="Mathematics") Mathematics
-              td(id="mathematics_earned")
-              td(data-label="6") 6
-            tr
-              td(data-label="Humanities") Humanities
-              td(id="humanities_earned")
-              td(data-label="6") 6
-            tr
-              td(data-label="Biological/Physical Sciences") Bio./Phys. Sciences
-              td(id="sciences_earned")
-              td(data-label="6") 6
-            tr
-              td(data-label="Social Sciences") Social Sciences
-              td(id="socsci_earned")
-              td(data-label="6") 6
-            tr
-              td(data-label="International") International
-              td(id="international_earned")
-              td(data-label="3") 3
-            tr
-              td(data-label="Diversity") Diversity
-              td(id="diversity_earned")
-              td(data-label="3") 3
-            tr
-              td(data-label="Total") Total
-              td(id="total_earned")
-              td(data-label="-") -
+    //- div(class="ui text container transition hidden" style="padding-top:2%; margin-bottom:1%; display:none " id="credits_container")
+    //-   div(class="ui segment")
+    //-     h5(class="ui header")
+    //-     table(class="ui celled table")
+    //-       thead
+    //-         tr
+    //-           th Gen. Ed. Subject
+    //-           th Earned credits
+    //-           th Required credits
+    //-       tbody(id="table_body")
+    //-         tr
+    //-           td(data-label="Composition") Composition
+    //-           td(id="composition_earned")
+    //-           td(data-label="6") 6
+    //-         tr
+    //-           td(data-label="Mathematics") Mathematics
+    //-           td(id="mathematics_earned")
+    //-           td(data-label="6") 6
+    //-         tr
+    //-           td(data-label="Humanities") Humanities
+    //-           td(id="humanities_earned")
+    //-           td(data-label="6") 6
+    //-         tr
+    //-           td(data-label="Biological/Physical Sciences") Bio./Phys. Sciences
+    //-           td(id="sciences_earned")
+    //-           td(data-label="6") 6
+    //-         tr
+    //-           td(data-label="Social Sciences") Social Sciences
+    //-           td(id="socsci_earned")
+    //-           td(data-label="6") 6
+    //-         tr
+    //-           td(data-label="International") International
+    //-           td(id="international_earned")
+    //-           td(data-label="3") 3
+    //-         tr
+    //-           td(data-label="Diversity") Diversity
+    //-           td(id="diversity_earned")
+    //-           td(data-label="3") 3
+    //-         tr
+    //-           td(data-label="Total") Total
+    //-           td(id="total_earned")
+    //-           td(data-label="-") -
 
 
     footer(class="ui white text" style="color:white; text-align:center; margin:1em") ©2019 Kristofer Buno | All rights reserved I guess

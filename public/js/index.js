@@ -14,20 +14,13 @@ $.getJSON(`json\\apexamcredits.json`, function(creds) {
     //programatically add DOM elements with each exam and a field for each exam after JSON is loaded
     for (let exam in ap_exams)
     {
-    let optel = `
-                <div class="ui accordion fluid field">
-                    <div class="title">
-                        <i class="icon dropdown"></i>
-                        ${ap_exams[exam]}
-                    </div>
-                <div class="fluid content field">
-                    <input placeholder="Score (between 3 and 5)" name="${ap_exams[exam]}" min="3" max="5" type="number">
-                </div>
-                `;
+    let optel = `<option value="${ap_exams[exam]}">${ap_exams[exam]}</option>`;
         
         $("#listtop").append(optel);
     }
-    $('.ui.accordion').accordion();
+    $('.ui.dropdown')
+  .dropdown()
+;
 })
 
 //function that transitions from selection view to scores view
