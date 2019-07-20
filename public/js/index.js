@@ -57,14 +57,33 @@ function submitForm()
         "total":0
     }
 
+    let credit_by_class = {
+        "c": new Array,
+        "m": new Array,
+        "h": new Array,
+        "bp": new Array,
+        "s": new Array,
+        "n": new Array,
+        "d": new Array,
+        "total": new Array
+    }
+
     //put in credit into the credit_earned object
     for (let exam in scores){
         for (let category in credit_earned)
         {
             let score = scores[exam];
-            credit_earned[category] += ap_exam_credits[score][exam][category];
+            let category_credit = ap_exam_credits[score][exam][category];
+            if (category_credit > 0)
+            {
+                credit_earned[category] += category_credit;
+                let temp_examObject = {};
+                temp_examObject[exam] = credit_earned[category];
+                credit_by_class[category].push(temp_examObject);
+            }
         }
     }
+    console.log(credit_by_class);
 
     $('#composition_earned').text(credit_earned.c);
     $('#mathematics_earned').text(credit_earned.m);
